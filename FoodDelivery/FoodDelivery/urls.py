@@ -21,4 +21,5 @@ urlpatterns = [
     path('loginAuth/', include('loginAuth.urls')),
     path('restaurants/', include('restaurantListingApp.urls')),
     path('menus/', include('menuApp.urls')),
+    path('cart/', include('cartApp.urls')),
 ]
