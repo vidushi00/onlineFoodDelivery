@@ -21,7 +21,7 @@ def get_all_restaurants(request):
 
 
 @api_view(["GET"])
-def get_restaurant_by_id(id):
+def get_restaurant_by_id(request, id):
     try:
         restaurant_object = Restaurants.objects.filter(id=id).first()
         serialized_list = RestaurantSerializer(restaurant_object)
