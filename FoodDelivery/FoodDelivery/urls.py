@@ -22,4 +22,6 @@ urlpatterns = [
     path('restaurants/', include('restaurantListingApp.urls')),
     path('menus/', include('menuApp.urls')),
     path('cart/', include('cartApp.urls')),
+    path('orders/', include('ordersApp.urls')),
+    path('delivery/', include('deliveryDetailApp.urls')),
 ]

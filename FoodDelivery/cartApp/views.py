@@ -45,6 +45,7 @@ def add_item_to_cart(request):
         else:
             serialized_data = UsersCartSerializer(data=item_data)
             serialized_data["status"] = "in_cart"
+            print(serialized_data)
             if serialized_data.is_valid():
                 serialized_data.save()
                 return Response({'status': 'Success', 'response': 'Cart item saved successfully'})
@@ -64,8 +65,17 @@ def remove_item_from_cart(request, id):
         return Response({'status': 'Fail', 'response': str(e)})
 
 
-def update_order_in_cart(request):
-    pass
+def update_order_status_in_cart(request, id):
+    try:
+        cart_item = UsersCart.objects.filter(id=id).first()
+        serialized_data = UsersCartSerializer(cart_item, request.data)
+        if serialized_data.is_valid():
+            serialized_data.save()
+            return Response({'status': 'Success', 'response': 'Data updated successfully'})
+    except Exception as e:
+        return Response({'status': 'Success', 'response': str(e)})
 
 def add_item_to_orders(request):
     pass
+
+
