@@ -3,7 +3,7 @@ from django.db import models
 from restaurantListingApp.models import Restaurants
 
 
-# Create your models here.
+# Create your menu models here.
 
 class Menu(models.Model):
     id = models.BigAutoField(primary_key=True, editable=False)
